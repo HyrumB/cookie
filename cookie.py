@@ -14,6 +14,12 @@ def print_1():
 
 def processLine(line):
     tokens = line.split(" ")
+
+    # Case: var = add()
+    if len(tokens) == 3 and tokens[2] == "add()":
+        variables[tokens[0]] = getValue("_1") + getValue("_2")
+        return
+
     # Case: var = v1
     if len(tokens) == 3 and tokens[1] == "=":
         variables[tokens[0]] = getValue(tokens[2])
